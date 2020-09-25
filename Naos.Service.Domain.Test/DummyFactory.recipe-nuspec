@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>Naos.Service.Domain.Recipes.DummyFactory</id>
+    <description>A Dummy Factory for types in Naos.Service.Domain</description>
+    <tags>dummyfactory dummy factory fakeiteasy autofixture snippet codeinclude utility shared recipe Service</tags>
+    <dependencies>
+      <dependency id="Naos.Service.Domain" version="$version$" />
+      <dependency id="OBeautifulCode.AutoFakeItEasy" version="1.0.129" />
+      <dependency id="Naos.CodeAnalysis.Recipes.SuppressBecause" version="1.0.125" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="ServiceDummyFactory.cs" target="content\net462\.recipes\Naos.Service\ServiceDummyFactory.cs" />
+    <file src="ServiceDummyFactory.designer.cs" target="content\net462\.recipes\Naos.Service\ServiceDummyFactory.designer.cs" />
+  </files>
+</package>

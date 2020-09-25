@@ -1,0 +1,7 @@
+﻿<?xml version="1.0"?>
+<package>
+  <metadata>
+    <description>Shared types (models and utilities) for Service</description>
+    <tags>models modelobject utilities Service</tags>
+  </metadata>
+</package>
