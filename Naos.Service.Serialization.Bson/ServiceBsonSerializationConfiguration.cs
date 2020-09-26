@@ -8,7 +8,7 @@ namespace Naos.Service.Serialization.Bson
 {
     using System;
     using System.Collections.Generic;
-
+    using Naos.Service.Domain;
     using OBeautifulCode.Serialization.Bson;
 
     /// <inheritdoc />
@@ -17,7 +17,7 @@ namespace Naos.Service.Serialization.Bson
         /// <inheritdoc />
         protected override IReadOnlyCollection<TypeToRegisterForBson> TypesToRegisterForBson => new TypeToRegisterForBson[]
         {
-            // ADD TYPES TO REGISTER HERE
+            typeof(ServiceLocatorBase).ToTypeToRegisterForBson(),
         };
     }
 }

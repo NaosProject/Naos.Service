@@ -1,15 +1,18 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="Class1.cs" company="Naos Project">
+// <copyright file="ServiceLocatorBase.cs" company="Naos Project">
 //    Copyright (c) Naos Project 2019. All rights reserved.
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace Naos.Service.Domain
 {
+    using Naos.Protocol.Domain;
+    using OBeautifulCode.Type;
+
     /// <summary>
-    /// TODO: Starting point for new project.
+    /// Base <see cref="Naos.Service"/> domain extension of <see cref="ResourceLocatorBase"/>.
     /// </summary>
-    public partial class Class1
+    public abstract partial class ServiceLocatorBase : ResourceLocatorBase, IModelViaCodeGen
     {
     }
 }

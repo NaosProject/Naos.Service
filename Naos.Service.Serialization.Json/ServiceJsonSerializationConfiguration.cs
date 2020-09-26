@@ -8,7 +8,7 @@ namespace Naos.Service.Serialization.Json
 {
     using System;
     using System.Collections.Generic;
-
+    using Naos.Service.Domain;
     using OBeautifulCode.Serialization.Json;
 
     /// <inheritdoc />
@@ -17,7 +17,7 @@ namespace Naos.Service.Serialization.Json
         /// <inheritdoc />
         protected override IReadOnlyCollection<TypeToRegisterForJson> TypesToRegisterForJson => new TypeToRegisterForJson[]
         {
-            // ADD TYPES TO REGISTER HERE
+            typeof(ServiceLocatorBase).ToTypeToRegisterForJson(),
         };
     }
 }
