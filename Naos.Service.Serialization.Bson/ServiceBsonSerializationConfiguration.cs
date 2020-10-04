@@ -12,6 +12,7 @@ namespace Naos.Service.Serialization.Bson
     using Naos.Protocol.Serialization.Bson;
     using Naos.Service.Domain;
     using OBeautifulCode.Serialization.Bson;
+    using OBeautifulCode.Type;
 
     /// <inheritdoc />
     public class ServiceBsonSerializationConfiguration : BsonSerializationConfigurationBase
@@ -20,7 +21,7 @@ namespace Naos.Service.Serialization.Bson
         protected override IReadOnlyCollection<string> TypeToRegisterNamespacePrefixFilters =>
             new[]
             {
-                FormattableString.Invariant($"{nameof(Naos)}.{nameof(Naos.Service)}.{nameof(Naos.Service.Domain)}"),
+                Naos.Service.Domain.ProjectInfo.Namespace,
             };
 
         /// <inheritdoc />
@@ -33,9 +34,7 @@ namespace Naos.Service.Serialization.Bson
         /// <inheritdoc />
         protected override IReadOnlyCollection<TypeToRegisterForBson> TypesToRegisterForBson => new[]
         {
-            typeof(IResourceLocator).ToTypeToRegisterForBson(),
-            typeof(IOperation).ToTypeToRegisterForBson(),
-            typeof(IEvent<>).ToTypeToRegisterForBson(),
+            typeof(IModel).ToTypeToRegisterForBson(),
         };
     }
 }
