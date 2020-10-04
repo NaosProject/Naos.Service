@@ -8,6 +8,8 @@ namespace Naos.Service.Serialization.Json
 {
     using System;
     using System.Collections.Generic;
+    using Naos.Protocol.Domain;
+    using Naos.Protocol.Serialization.Json;
     using Naos.Service.Domain;
     using OBeautifulCode.Serialization.Json;
 
@@ -15,9 +17,25 @@ namespace Naos.Service.Serialization.Json
     public class ServiceJsonSerializationConfiguration : JsonSerializationConfigurationBase
     {
         /// <inheritdoc />
+        protected override IReadOnlyCollection<string> TypeToRegisterNamespacePrefixFilters =>
+            new[]
+            {
+                FormattableString.Invariant($"{nameof(Naos)}.{nameof(Naos.Service)}.{nameof(Naos.Service.Domain)}"),
+            };
+
+        /// <inheritdoc />
+        protected override IReadOnlyCollection<JsonSerializationConfigurationType> DependentJsonSerializationConfigurationTypes =>
+            new[]
+            {
+                typeof(ProtocolJsonSerializationConfiguration).ToJsonSerializationConfigurationType(),
+            };
+
+        /// <inheritdoc />
         protected override IReadOnlyCollection<TypeToRegisterForJson> TypesToRegisterForJson => new TypeToRegisterForJson[]
         {
-            typeof(ServiceLocatorBase).ToTypeToRegisterForJson(),
+            typeof(IResourceLocator).ToTypeToRegisterForJson(),
+            typeof(IOperation).ToTypeToRegisterForJson(),
+            typeof(IEvent<>).ToTypeToRegisterForJson(),
         };
     }
 }
